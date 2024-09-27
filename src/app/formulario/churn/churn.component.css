@@ -1,0 +1,91 @@
+.navbar-background {
+    background-image: url('../../../assets/logo.png'); /* Caminho para a imagem de fundo */
+    background-size: cover; /* Faz a imagem cobrir todo o fundo */
+    background-position: center; /* Centraliza a imagem no fundo */
+    height: 70px; /* Define uma altura para a navbar */
+    color: black;
+}
+  
+.navbar-brand {
+    font-size: 24px;
+    color: black;
+    font-weight: bold;
+    font-size: 30pt;
+}
+  
+.navbar-text {
+  color: white;
+}
+
+.container-form{
+  height: 92% !important;
+  width: 1570px;
+  padding: 10px;
+  position: absolute;
+  justify-content: center !important;
+  left: 50%; /* posiciona na metade da tela */
+  margin-left: -785px; /* e retrocede metade da largura */
+}
+
+.form-registro{
+  height: 270px;
+}
+
+.titulo-form{
+  height: 40px;
+  background-color:#deecf9;
+  padding-top: 5px;
+  padding-left: 10px;
+}
+
+.detalhe-form{
+  height:auto;
+  /* background-color:rgb(3, 33, 44);*/
+  padding-top: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.table-responsive{
+  height: 434px;
+}
+
+.table-responsive th[scope=col-align-right] {
+  text-align:right; 
+}
+
+.table-responsive th[scope=col-align-center] {
+  text-align:center; 
+}
+
+#divBusca{
+  background-color:#E0EEEE;
+  border:solid 2px #c7eaf4;
+  border-radius:10px;
+  width: 370px;
+  height:35px;
+}
+
+#txtBuscaCliente{
+  float:left;
+  background-color:transparent !important;
+  padding-left:5px;
+  font-size:18px;
+  border:none;
+  height:32px;
+  width:265px;
+}
+
+#btnBuscaCliente{
+  border:none;
+  float:left;
+  height:32px;
+  border-radius:0 7px 7px 0;
+  width:70px;
+  font-weight:bold;
+  background:#c7eaf4;
+}
+
+#divBusca img{
+  float:left;
+}

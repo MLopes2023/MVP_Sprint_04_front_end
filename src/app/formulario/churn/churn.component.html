@@ -1,0 +1,260 @@
+<!-- Container cabeçalho da página -->
+ 
+<div class="container-main justify-content-center" >
+  
+  <!-- Container cabeçalho da página -->  
+  <div class="cabecalho" >
+    <nav class="navbar navbar-expand-lg navbar-light navbar-background">
+      <div class="container-fluid justify-content-center">
+        <a class="navbar-brand d-flex align-items-center" href="#">
+          <span class="navbar-text"><h3>Predição Rotatividade de Clientes do Banco</h3></span>
+        </a>
+      </div>
+    </nav>
+  </div>
+
+  <!-- ---------------------------------------------------------------------- -->
+  <!-- Container principal do formulário                                      -->
+  <!-- ---------------------------------------------------------------------- -->
+
+  <div class="container-form">
+
+    <!-- ---------------------------------------------------------------------- -->
+    <!-- Formulário principal                                                    -->
+    <!-- ---------------------------------------------------------------------- -->
+    
+    <div class="form-principal pt-4 vh-100 container-form">
+      
+      <!-- ---------------------------------------------------------------------- -->
+      <!-- Formulário Registro                                                    -->
+      <!-- ---------------------------------------------------------------------- -->  
+
+      <div class="form-registro form-principal">
+        <div class="titulo-form">
+          <h5>Registro Predição de Rotatividade</h5>
+        </div>
+        <div class="detalhe-form">
+          <form [formGroup]="churnForm" (ngSubmit)="onSubmit()" class="row">
+            <!-- Nome Cliente -->
+            <div class="col-sm-3">
+              <label for="client_name" class="form-label">Nome Cliente</label>
+              <input formControlName="client_name" type="text" class="form-control" id="client_name" placeholder="Nome Cliente">
+              <div *ngIf="churnForm.get('client_name')?.invalid && churnForm.get('client_name')?.touched" class="text-danger">
+                Nome do cliente é obrigatório.
+              </div>
+            </div>
+          
+            <!-- Pontuação de Crédito -->
+            <div class="col-sm-3">
+              <label for="credit_score" class="form-label">Pontuação de Crédito</label>
+              <input formControlName="credit_score" type="number" min="0"  class="form-control" id="credit_score" placeholder="Digite a pontuação de crédito">
+              <div *ngIf="churnForm.get('credit_score')?.invalid && churnForm.get('credit_score')?.touched" class="text-danger">
+                <div *ngIf="churnForm.get('credit_score')?.errors?.['required']">Pontuação de crédito é obrigatória.</div>
+                <div *ngIf="churnForm.get('credit_score')?.errors?.['min']">Pontuação mínima é 0.</div>
+              </div>
+            </div>
+
+            <!-- País de Residência -->
+            <div class="col-sm-3">
+              <label for="country" class="form-label">País de Residência</label>
+              <select formControlName="country" class="form-select" id="country">
+                <option value="Alemanha">Alemanha</option>
+                <option value="Espanha">Espanha</option> 
+                <option value="França">França</option> 
+              </select>
+              <div *ngIf="churnForm.get('country')?.invalid && churnForm.get('country')?.touched" class="text-danger">
+                País de residência é obrigatório.
+              </div>
+            </div>
+          
+            <!-- Gênero -->
+            <div class="col-sm-3">
+              <label for="gender" class="form-label">Gênero</label>
+              <select formControlName="gender" class="form-select" id="gender">
+                <option value="Masculino">Masculino</option>
+                <option value="Feminino">Feminino</option> 
+              </select>
+              <div *ngIf="churnForm.get('gender')?.invalid && churnForm.get('gender')?.touched" class="text-danger">
+                Gênero é obrigatório.
+              </div>
+            </div>
+          
+            <!-- Idade -->
+            <div class="col-sm-3">
+              <label for="age" class="form-label">Idade</label>
+              <input formControlName="age" type="number" class="form-control"  min="0"  id="age" placeholder="Digite a idade">
+              <div *ngIf="churnForm.get('age')?.invalid && churnForm.get('age')?.touched" class="text-danger">
+                <div *ngIf="churnForm.get('age')?.errors?.['required']">Idade é obrigatória.</div>
+                <div *ngIf="churnForm.get('age')?.errors?.['min']">Idade mínima é 10 anos.</div>
+              </div>
+            </div>
+          
+            <!-- Anos de Conta no Banco -->
+            <div class="col-sm-3"> 
+              <label for="tenure" class="form-label">Anos de Conta no Banco</label>
+              <input formControlName="tenure" type="number" class="form-control" id="tenure"  min="0"  placeholder="Digite os anos de conta">
+              <div *ngIf="churnForm.get('tenure')?.invalid && churnForm.get('tenure')?.touched" class="text-danger">
+                Anos de conta é obrigatório e deve ser maior ou igual a 0.
+              </div>
+            </div>
+          
+            <!-- Saldo da Conta -->
+            <div class="col-sm-3">
+                <label for="balance" class="form-label">Saldo da Conta</label>
+                <input 
+                    type="text" 
+                    mask="separator.2"  
+                    thousandSeparator="." 
+                    decimalMarker="," 
+                    formControlName="balance"  
+                    class="form-control" 
+                    id="balance" placeholder="Digite o saldo da conta">
+                <div *ngIf="churnForm.get('balance')?.invalid && churnForm.get('balance')?.touched" class="text-danger">
+                  <div *ngIf="churnForm.get('balance')?.errors?.['required']">Saldo é obrigatório.</div>
+                  <div *ngIf="churnForm.get('balance')?.errors?.['pattern']">Digite um valor decimal válido.</div>
+                </div>
+              </div>
+        
+            <!-- Quantidade de Produtos no Banco -->
+            <div class="col-sm-3">
+              <label for="products_number" class="form-label">Quantidade de Produtos no Banco</label>
+              <input formControlName="products_number" type="number"   min="0" class="form-control" id="products_number" placeholder="Digite a quantidade de produtos">
+              <div *ngIf="churnForm.get('products_number')?.invalid && churnForm.get('products_number')?.touched" class="text-danger">
+                Quantidade de produtos é obrigatória e deve ser maior ou igual a 0.
+              </div>
+            </div>
+          
+            <!-- Cartão de Crédito -->
+            <div class="col-sm-3">
+              <label for="credit_card" class="form-label">Cartão de Crédito</label>
+              <select formControlName="credit_card" class="form-select" id="credit_card">
+                <option value="1">Sim</option>
+                <option value="0">Não</option>
+              </select>
+              <div *ngIf="churnForm.get('credit_card')?.invalid && churnForm.get('credit_card')?.touched" class="text-danger">
+                Cartão de crédito é obrigatório.
+              </div>
+            </div>
+          
+            <!-- Membro Ativo -->
+            <div class="col-sm-3">
+              <label for="active_member" class="form-label">Membro Ativo</label>
+              <select formControlName="active_member" class="form-select" id="active_member">
+                <option value="1">Sim</option>
+                <option value="0">Não</option>
+              </select>
+              <div *ngIf="churnForm.get('active_member')?.invalid && churnForm.get('active_member')?.touched" class="text-danger">
+                Membro ativo é obrigatório.
+              </div>
+            </div>
+          
+            <!-- Salário Estimado -->
+            <div class="col-sm-3">
+                <label for="estimated_salary" class="form-label">Salário Estimado</label>
+                <input 
+                    type="text" 
+                    mask="separator.2"  
+                    thousandSeparator="." 
+                    decimalMarker="," 
+                    formControlName="estimated_salary" 
+                    class="form-control" 
+                    id="estimated_salary" 
+                    placeholder="Digite o salário estimado">
+                <div *ngIf="churnForm.get('estimated_salary')?.invalid && churnForm.get('estimatedSalary')?.touched" class="text-danger">
+                  <div *ngIf="churnForm.get('estimated_salary')?.errors?.['required']">Salário estimado é obrigatório.</div>
+                  <div *ngIf="churnForm.get('estimated_salary')?.errors?.['pattern']">Digite um valor decimal válido.</div>
+                </div>
+              </div>
+              <div class="col-sm-3">
+                <label for="registrar" class="form-label">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                <button type="submit" class="btn btn-outline-primary form-control" id="botao-registrar">Registrar Predição de Rotatividade</button>
+              </div>
+          </form>
+        
+        </div> <!-- Fim class detalhe-form -->
+
+      </div> <!-- Fim class form-registro -->
+      <p></p>
+      <p></p>
+      <p></p>
+      
+      <!-- ---------------------------------------------------------------------- -->
+      <!-- Container Grid formulário                                              -->
+      <!-- ---------------------------------------------------------------------- -->
+
+      <div class="form-grid form-principal">
+        <div class="titulo-form">
+          <h5>Lista Predição de Rotatividade</h5>
+        </div>  
+        <p></p>
+        <!-- Pesquisa cliente -->
+        <div col-sm-12 id="divBusca">
+          <img src="../../../assets/pesquisa.png"/>
+          <input [(ngModel)]="likeClientName" type="text" id="txtBuscaCliente" placeholder="Buscar cliente..."/>
+          <button id="btnBuscaCliente" (click)="atualizarGrid()">Buscar</button>
+        </div>
+        <!-- Fim pesquisa cliente -->
+        <p></p>
+        <div class="detalhe-grid">
+          <!--Filtro Grid da pesquisa -->
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th scope="col">Nome Cliente</th>
+                  <th scope="col-align-center">Pontuação Crédito</th>
+                  <th scope="col">País Residência</th>
+                  <th scope="col">Gênero</th>
+                  <th scope="col-align-center">Idade</th>
+                  <th scope="col-align-center">Anos de Conta</th>
+                  <th scope="col-align-right">Saldo C/C</th>
+                  <th scope="col-align-center">Qtde. Produtos</th>
+                  <th scope="col-align-center">Cartão de Crédito</th>
+                  <th scope="col-align-center">Membro Ativo</th>
+                  <th scope="col-align-right">Salário Estimado</th>
+                  <th scope="col-align-center">Saiu do Banco ?</th>
+                  <th scope="col-align-center">Ações</th>
+                </tr>
+              </thead>
+          
+              <div *ngIf="loading | async; else content">
+                <p>Carregando...</p>
+              </div>
+          
+              <ng-template #content>
+                <tbody>
+                  <tr *ngFor="let item of dataSource">
+                    <td>{{ item.client_name }}</td>
+                    <td align="center">{{ item.credit_score }}</td>
+                    <td>{{ item.country }}</td>
+                    <td>{{ item.gender }}</td>
+                    <td align="center">{{ item.age }}</td>
+                    <td align="center">{{ item.tenure }}</td>
+                    <td class="text-end">{{ item.balance | number:'1.2-2':'pt-BR'  }}</td>
+                    <td align="center">{{ item.products_number }}</td>
+                    <td align="center">{{ item.credit_card == 1 ? 'Sim' : 'Não' }}</td>
+                    <td align="center">{{ item.active_member == 1 ? 'Sim' : 'Não' }}</td>
+                    <td class="text-end">{{ item.estimated_salary | number:'1.2-2':'pt-BR' }}</td>
+                    <td align="center">{{ item.churn_result }}</td>
+                    <td align="center">
+                        <img src="../../../assets/delete_2.png" (click)="ExcluirItem(item.id)"/>
+                    </td> 
+                  </tr>
+                </tbody>
+              </ng-template>
+            </table>
+          </div> <!-- Fim Grid da Pesquisa  -->  
+
+        </div>  <!-- Fim class detalhe-grid --> 
+
+      </div> <!-- Fim form-grid -->
+      
+    </div> <!-- Fim formulário principal -->
+
+  </div> <!-- Fim Container principal do formulário -->
+  
+</div> <!-- Fim class=container-main -->
+
+
+
+
