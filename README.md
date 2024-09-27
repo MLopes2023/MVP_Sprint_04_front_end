@@ -1,6 +1,6 @@
 # APP Bank Customer Churn Prediction
 
-- O aplicativo efetua o controle de registros de predições de rotatividade de clientes, cujo o objetivo é prever a rotatividade de clientes durante algum período, aplicando o melhor modelo de machine learnig, com base nos dados dos correntidas do ABC Multinational Bank fornecido, sendo também possível adicionar, listar e remover predições já registradas.
+- O aplicativo efetua o controle de registros de predições de rotatividade de clientes, cujo o objetivo é prever a rotatividade de clientes no banco durante algum período, aplicando o melhor modelo de machine learnig, com base nos dados dos correntidas do ABC Multinational Bank fornecido, sendo também possível adicionar, listar e remover predições já registradas.
 
 
 ### Tecnologias utilizadas
