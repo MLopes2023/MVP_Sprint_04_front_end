@@ -15,9 +15,9 @@
 
 ### Executar no ambiente de desenvolvimento
 
-- Abrir pelo terminal na pasta principal dos arquivos da aplicação front-end.
+- Abrir pelo terminal a pasta principal dos arquivos da aplicação front-end.
 
-  - executar o comando para instalação de todas a dependências já mapeadas no projeto:
+  - Executar o comando para instalação de todas a dependências já mapeadas no projeto:
 
     npm install
 
@@ -26,5 +26,5 @@
   - Comando para rodar o projeto front-end
 
     ng s ou ng serve
-    
+
     A aplicação poderá ser acessado no browser no link http://localhost:4200/
