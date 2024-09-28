@@ -15,6 +15,8 @@
 
 ### Executar no ambiente de desenvolvimento
 
+- Download do nodeJS 16.14.2 versão do curso e instalar.
+
 - Abrir pelo terminal a pasta principal dos arquivos da aplicação front-end.
 
   - Executar o comando para instalação de todas a dependências já mapeadas no projeto:
