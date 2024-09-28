@@ -15,6 +15,8 @@
 
 ### Executar no ambiente de desenvolvimento
 
+- Resolução monitor desenvolvimento 1920 X 1080 
+ 
 - Download do nodeJS 16.14.2 versão do curso e instalar.
 
 - Abrir pelo terminal a pasta principal dos arquivos da aplicação front-end.
