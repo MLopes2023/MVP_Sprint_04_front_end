@@ -19,12 +19,8 @@
 
 .container-form{
   height: 92% !important;
-  width: 1570px;
-  padding: 10px;
-  position: absolute;
-  justify-content: center !important;
-  left: 50%; /* posiciona na metade da tela */
-  margin-left: -785px; /* e retrocede metade da largura */
+  width: 100%;
+  
 }
 
 .form-registro{
